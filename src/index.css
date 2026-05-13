@@ -1,0 +1,506 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  --purple: #715BF0;
+  --navy: #1A1941;
+  --light-blue: #CAE0FF;
+  --accent: #FD8A93;
+  /* Used for missed highlights and blurs */
+  --bg-color: #EAEBF8;
+  --white: #ffffff;
+
+  --font-sans: 'Outfit', sans-serif;
+  --shadow-lg: 0 20px 50px rgba(26, 25, 65, 0.12);
+  --radius-xl: 2rem;
+  --radius-xxl: 2.5rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--navy);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Using colors for background effects */
+.bg-blur-1 {
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 50%;
+  height: 50%;
+  background: var(--purple);
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.bg-blur-2 {
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 40%;
+  height: 40%;
+  background: var(--light-blue);
+  filter: blur(80px);
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.bg-blur-3 {
+  position: absolute;
+  top: 20%;
+  right: -5%;
+  width: 20%;
+  height: 20%;
+  background: var(--accent);
+  filter: blur(60px);
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 450px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.brand-title {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -0.03em;
+}
+
+.brand-subtitle {
+  color: var(--purple);
+  font-weight: 800;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+/* Navigation Bar */
+.navigation {
+  display: flex;
+  padding: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  border-radius: var(--radius-xl);
+  box-shadow: 0 10px 30px rgba(26, 25, 65, 0.05);
+  gap: 0.25rem;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  padding: 0.85rem 0.5rem;
+  border-radius: 1.25rem;
+  text-decoration: none;
+  color: var(--navy);
+  font-size: 0.65rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+.nav-item:hover {
+  background-color: var(--white);
+  color: var(--purple);
+}
+
+/* Cards */
+.main-card {
+  background-color: var(--white);
+  padding: 2.5rem;
+  border-radius: var(--radius-xxl);
+  box-shadow: var(--shadow-lg);
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+}
+
+/* Form Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: rgba(26, 25, 65, 0.4);
+  text-transform: uppercase;
+  margin-bottom: 0.6rem;
+}
+
+.input,
+.textarea {
+  width: 100%;
+  padding: 1.15rem;
+  border-radius: 1.25rem;
+  background-color: var(--bg-color);
+  /* Light background using root color */
+  border: 2px solid transparent;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--navy);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: var(--purple);
+}
+
+.textarea {
+  height: 10rem;
+  resize: none;
+}
+
+/* Buttons */
+.btn-primary {
+  width: 100%;
+  padding: 1.25rem;
+  background-color: var(--purple);
+  color: var(--white);
+  border: none;
+  border-radius: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--navy);
+}
+
+.btn-navy {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--navy);
+  color: var(--white);
+  border: none;
+  border-radius: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Practice View Specifics */
+.mastery-card {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  margin-bottom: 1.5rem;
+  box-shadow: 0 10px 30px rgba(26, 25, 65, 0.04);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.progress-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--purple);
+  text-transform: uppercase;
+}
+
+.progress-bg {
+  height: 0.75rem;
+  background-color: var(--light-blue);
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--purple);
+  transition: width 0.4s ease;
+}
+
+.cue-card {
+  background-color: var(--navy);
+  padding: 1.75rem;
+  border-radius: 1.75rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.cue-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--light-blue);
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.cue-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  line-height: 1.5;
+}
+
+.flashcard {
+  background-color: var(--white);
+  padding: 3rem 2rem;
+  border-radius: var(--radius-xxl);
+  box-shadow: var(--shadow-lg);
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* High Visibility Rating Grid */
+.rating-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 1.5rem;
+}
+
+.rating-btn {
+  border: 3px solid;
+  border-radius: 1.25rem;
+  padding: 1.25rem 0.25rem;
+  font-weight: 900;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: var(--white);
+  transition: transform 0.1s;
+}
+
+.rating-btn:active {
+  transform: scale(0.95);
+}
+
+.rating-btn.perfect {
+  color: #15803d;
+  border-color: #15803d;
+  background-color: #f0fdf4;
+}
+
+.rating-btn.close {
+  color: #a16207;
+  border-color: #a16207;
+  background-color: #fefce8;
+}
+
+.rating-btn.missed {
+  color: var(--accent);
+  border-color: var(--accent);
+  background-color: #fef2f2;
+}
+
+/* Stats Page Grid */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: var(--white);
+  padding: 1.5rem 0.5rem;
+  border-radius: 1.75rem;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.stat-value.perfect {
+  color: #22c55e;
+}
+
+.stat-value.almost {
+  color: #eab308;
+}
+
+.stat-value.missed {
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: rgba(26, 25, 65, 0.3);
+}
+
+
+/* Cue Card */
+.no-cue-card {
+  background-color: rgba(26, 25, 65, 0.05);
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.no-cue-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--purple);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.no-cue-text {
+  font-size: 1.125rem;
+  color: var(--navy);
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+
+/* Accordion sections */
+.list-wrapper {
+  background-color: var(--white);
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+}
+
+.list-header {
+  padding: 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header p {
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.list-header span {
+  font-size: 0.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 20px;
+}
+
+.list-item {
+  padding: 1.25rem;
+  border-top: 1px solid var(--bg-color);
+}
+
+.list-text {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--navy);
+}
+
+.footer {
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.footer-text {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: rgba(26, 25, 65, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.card-description {
+  color: rgba(26, 25, 65, 0.5);
+  margin-bottom: 1.5rem;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.hidden-label {
+  color: rgba(26, 25, 65, 0.4);
+  font-size: 0.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.revealed-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: var(--navy);
+}
+
+.rating-status-text {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--purple);
+  margin-bottom: 1.5rem;
+}
+
+/* Instructions box */
+.instruction-box {
+  background-color: rgba(26, 25, 65, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+}
+
+.instruction-title {
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.instruction-list {
+  font-size: 0.8rem;
+  padding-left: 1.2rem;
+  line-height: 1.4;
+}
