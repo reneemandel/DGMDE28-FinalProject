@@ -4,7 +4,7 @@ import MyApp from './game.jsx';
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/DGMDE28-FinalProject">
       <MyApp />
     </BrowserRouter>
   );
