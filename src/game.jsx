@@ -217,18 +217,27 @@ function Settings({ onSave }) {
     };
 
     return (
-        <div className="main-card">
-            <h2 className="card-title">Setup</h2>
-            {/* static box of text that explains how to use the app to the user. */}
-            <div className="instruction-box">
-                <p className="instruction-title">Instructions</p>
-                <ul className="instruction-list">
-                    <li>Enter your character name EXACTLY.</li>
-                    <li>Paste your script using the Name: Line format.</li>
-                    <li>(Example) Juliet: Romeo, Romeo, wherefore art thou Romeo</li>
-                    <li>Click Practice to begin.</li>
-                </ul>
-            </div>
+        <div className="instruction-box">
+    <p className="instruction-title">How to Start</p>
+    
+    {/* Using <ol> for sequential steps (Week 2, Slide 39) */}
+    <ol className="instruction-list">
+        <li>Type your name in the **Character Name** box exactly as it appears in your script.</li>
+        <li>Paste your script into the large text area.</li>
+        <li>Ensure every line follows the **Name: Line** format.</li>
+    </ol>
+
+    {/* Dedicated Example Block - much clearer than a list item */}
+    <div className="format-preview">
+        <p className="example-label">Required Format:</p>
+        <code className="example-code">
+            Juliet: Romeo, Romeo, wherefore art thou Romeo<br />
+            Romeo: Shall I hear more, or shall I speak at this?
+        </code>
+    </div>
+
+    <p className="instruction-footer">Click <strong>Practice</strong> to load your lines!</p>
+</div>
 
             {/* When the user clicks the button at the bottom, this form triggers the 'handlePractice' function. */}
             <form onSubmit={handlePractice}>
