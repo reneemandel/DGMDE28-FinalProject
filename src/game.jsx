@@ -66,7 +66,7 @@ function Game({ script, ratings, setRatings }) {
     };
 
     // Conditional Rendering 
-    if (script.length == 0) { 
+    if (script.length == 0) {
         return (
             <div className="main-card text-center">
                 <h2 className="card-title">Practice</h2>
@@ -93,17 +93,17 @@ function Game({ script, ratings, setRatings }) {
     return (
         <div>
             {/* Mastery Progress Section: Displays how many lines the user has memorized */}
-            <div className="mastery-card"> 
+            <div className="mastery-card">
                 <div className="progress-header">
                     <span className="progress-label">Mastered</span>
-                     {/* Displays the 'Got it' count vs the total lines for this character */}
+                    {/* Displays the 'Got it' count vs the total lines for this character */}
                     <span className="progress-value">{masteredCount} / {userLines.length}</span>
                 </div>
-                 {/* Visual Progress Bar container */}
+                {/* Visual Progress Bar container */}
                 <div className="progress-bg">
                     <div className="progress-fill" style={{ width: `${masteryProgress}%` }}></div>    {/* CSS width to grow and shrink based on the masteryProgress variable. */}
                 </div>
-            </div> 
+            </div>
 
             {/* Ternary Rendering: 
             This checks if 'cueLine' has a value.
@@ -126,7 +126,7 @@ function Game({ script, ratings, setRatings }) {
             <div className="flashcard"> {/*  This block only displays if the line is NOT yet revealed AND a rating hasn't been selected. */}
                 {!revealed && !currentRating && (
                     <div className="text-center">
-                         {/* JSX Expressions: Injecting dynamic data from state into the UI */}
+                        {/* JSX Expressions: Injecting dynamic data from state into the UI */}
                         <p className="hidden-label">
                             {currentLine.character}: Line Hidden
                         </p>
@@ -136,7 +136,7 @@ function Game({ script, ratings, setRatings }) {
                 )}
 
                 {/* This displays the revealed line and the rating options once 'revealed' is true */}
-                {revealed && !currentRating && ( 
+                {revealed && !currentRating && (
                     <div className="revealed-view">
                         <p className="revealed-text">
                             "{currentLine.text}"
@@ -164,7 +164,7 @@ function Game({ script, ratings, setRatings }) {
     );
 }
 
-{/* Destructured Props (Week 10): Extracting 'onSave' directly from the props object. */}
+{/* Destructured Props (Week 10): Extracting 'onSave' directly from the props object. */ }
 function Settings({ onSave }) {
     var [text, setText] = useState(""); //initialize the strings with "" and the boolean with false.
     var [char, setChar] = useState("");
@@ -187,18 +187,18 @@ function Settings({ onSave }) {
             var line = rawLine.trim();
             if (!line) return; // If the line is totally empty, just skip it.
 
-             // If the line has a colon, we know a new character is starting to talk.
+            // If the line has a colon, we know a new character is starting to talk.
             if (line.includes(':')) {
-                 // Split the line at the colon to separate the name from the dialogue.
+                // Split the line at the colon to separate the name from the dialogue.
                 var parts = line.split(':');
                 var character = parts[0]?.trim();
                 var textContent = parts.slice(1).join(':').trim();
 
-                 // Create a new "object" for this line with the name and the text.
+                // Create a new "object" for this line with the name and the text.
                 currentLineObj = {
                     character,
                     text: textContent,
-                     // Check if this line belongs to the user. We use lowercase so it matches even if they didn't get the capitalization perfect.
+                    // Check if this line belongs to the user. We use lowercase so it matches even if they didn't get the capitalization perfect.
                     isYours: character.toLowerCase() == char.toLowerCase() //case sensitive fix
                 };
                 linesArray.push(currentLineObj);
@@ -206,7 +206,7 @@ function Settings({ onSave }) {
                 currentLineObj.text += " " + line;
             }
         });
-         // If we successfully found some lines, save them to the app.
+        // If we successfully found some lines, save them to the app.
         if (linesArray.length > 0) {
             onSave(linesArray); // Send the data up to the main MyApp component.
             setSaved(true); // Update the state so the "Go Practice" button shows up.
@@ -221,33 +221,33 @@ function Settings({ onSave }) {
             <h2 className="card-title">Setup</h2>
             {/* static box of text that explains how to use the app to the user. */}
             <div className="instruction-box">
-    <p className="instruction-title">How to Setup Your Script</p>
-    <ul className="instruction-list">
-        <li><strong>Step 1:</strong> Enter your character name <strong>EXACTLY</strong> as it appears in the text below.</li>
-        <li><strong>Step 2:</strong> Paste the script using the <strong>Name: Line</strong> format.</li>
-        <li>
-            <strong>Correct Format Example:</strong><br />
-            Juliet: Romeo, Romeo, wherefore art thou Romeo<br />
-            Romeo: Shall I hear more, or shall I speak at this?
-        </li>
-        
-        <li><strong>Step 3:</strong> Click the <strong>Practice</strong> button to start your session.</li>
-    </ul>
-</div>
+                <p className="instruction-title">How to Setup Your Script</p>
+                <ul className="instruction-list">
+                    <li><strong>Step 1:</strong> Enter your character name <strong>EXACTLY</strong> as it appears in the text below.</li>
+                    <li><strong>Step 2:</strong> Paste the script using the <strong>Name: Line</strong> format.</li>
+                    <li>
+                        <strong>Correct Format Example:</strong><br />
+                        Juliet: Romeo, Romeo, wherefore art thou Romeo<br />
+                        Romeo: Shall I hear more, or shall I speak at this?
+                    </li>
+
+                    <li><strong>Step 3:</strong> Click the <strong>Practice</strong> button to start your session.</li>
+                </ul>
+            </div>
 
             {/* When the user clicks the button at the bottom, this form triggers the 'handlePractice' function. */}
             <form onSubmit={handlePractice}>
                 <div className="form-group">
                     <label className="form-label">My Character Name</label>
                     {/* Controlled inputs - link the value to a state variable and use onChange to update that state every time the user types a letter.*/}
-                    <input className="input" type="text" value={char} onChange={(e) => setChar(e.target.value)} /> 
+                    <input className="input" type="text" value={char} onChange={(e) => setChar(e.target.value)} />
                 </div>
                 <div className="form-group">
                     <label className="form-label">Paste Script</label>
                     {/* link the box to our 'text' variable. */}
                     <textarea className="textarea" value={text} onChange={(e) => setText(e.target.value)} />
                 </div>
-                 {/* This is the trigger for the form. Clicking this runs the 'handlePractice' logic. */}
+                {/* This is the trigger for the form. Clicking this runs the 'handlePractice' logic. */}
                 <button className="btn-primary" type="submit" style={{ width: '100%' }}>Practice</button>
             </form>
 
@@ -263,7 +263,7 @@ function Settings({ onSave }) {
 
 // This component shows the final results, sorting them into "buckets" for the user to review.
 function PlayerStats({ ratings, onRunAgain, onPracticeWeak }) {
-     // These variables act like switches to show or hide the lists of lines when the user clicks them.
+    // These variables act like switches to show or hide the lists of lines when the user clicks them.
     var [missedOpen, setMissedOpen] = useState(false);
     var [closeOpen, setCloseOpen] = useState(false);
 
@@ -320,7 +320,7 @@ function PlayerStats({ ratings, onRunAgain, onPracticeWeak }) {
             <div className="summary-card">
                 <Link to="/" style={{ textDecoration: 'none' }}>
                     {/* (onClick= ) When the button is clicked, it triggers the logic back up in the main app to reset the script.  */}
-                    <button className="btn-navy" style={{ width: '100%', marginBottom: '10px' }} onClick={onRunAgain}>Full Run Again</button> 
+                    <button className="btn-navy" style={{ width: '100%', marginBottom: '10px' }} onClick={onRunAgain}>Full Run Again</button>
                 </Link>
                 {weakLines.length > 0 && (
                     <Link to="/" style={{ textDecoration: 'none' }}>
@@ -334,7 +334,7 @@ function PlayerStats({ ratings, onRunAgain, onPracticeWeak }) {
 
 // Logic Component - This is the top-level component that manages all the data.
 export default function MyApp() {
-     {/* Global State: These variables hold the script and the user's progress so they can be shared across all screens. */}
+    {/* Global State: These variables hold the script and the user's progress so they can be shared across all screens. */ }
     var [script, setScript] = useState([]);
     var [ratings, setRatings] = useState([]);
     var [fullScript, setFullScript] = useState([]);
@@ -348,7 +348,7 @@ export default function MyApp() {
         }
     }, []);
 
-    {/* This function handles saving a new script. */}
+    {/* This function handles saving a new script. */ }
     var saveScript = (data) => {
         setFullScript(data); // Save the original copy.
         setScript(data); // Set the current practice copy.
@@ -356,21 +356,21 @@ export default function MyApp() {
         localStorage.setItem("runLines_script", JSON.stringify(data));
     };
 
-     {/* Resets the session so the user can try the whole thing again. */}
+    {/* Resets the session so the user can try the whole thing again. */ }
     var handleRunAgain = () => {
         setScript(fullScript);
         setRatings([]);
     };
 
-       {/* This is the "Study Weak Lines" logic. It creates a custom practice session using only the lines the user struggled with. */}
+    {/* This is the "Study Weak Lines" logic. It creates a custom practice session using only the lines the user struggled with. */ }
     var handlePracticeWeak = () => {
         // Step 1: Find the text of every line that wasn't 'Perfect.'
         var weakLinesText = ratings.filter(r => r.status != 'Got it').map(r => r.text);
-         // Step 2: Filter the whole script. 
+        // Step 2: Filter the whole script. 
         var weakOnlyScript = fullScript.filter(l => {
             // Keep lines from other characters so the user still has their 'cues.'
             if (!l.isYours) return true;
-             // For the user's lines, only keep the ones we identified as 'weak.'
+            // For the user's lines, only keep the ones we identified as 'weak.'
             return weakLinesText.includes(l.text);
         });
         setScript(weakOnlyScript);
@@ -387,7 +387,7 @@ export default function MyApp() {
                     <Route path="/" element={<Game script={script} ratings={ratings} setRatings={setRatings} />} />
                     {/* The script input screen */}
                     <Route path="/settings" element={<Settings onSave={saveScript} />} />
-                      {/* The results screen */}
+                    {/* The results screen */}
                     <Route path="/stats" element={<PlayerStats ratings={ratings} onRunAgain={handleRunAgain} onPracticeWeak={handlePracticeWeak} />} />                </Routes>
             </div>
         </div>
