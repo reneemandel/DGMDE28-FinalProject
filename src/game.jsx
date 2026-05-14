@@ -223,15 +223,32 @@ function Settings({ onSave }) {
             <div className="instruction-box">
                 <p className="instruction-title">How to Setup Your Script</p>
                 <ul className="instruction-list">
-                    <li><strong>Step 1:</strong> Enter your character name <strong>EXACTLY</strong> as it appears in the text below.</li>
-                    <li><strong>Step 2:</strong> Paste the script using the <strong>Name: Line</strong> format.</li>
+                    {/* Mapping Step 1 to Input 1 */}
                     <li>
-                        <strong>Correct Format Example:</strong><br />
-                        Juliet: Romeo, Romeo, wherefore art thou Romeo<br />
-                        Romeo: Shall I hear more, or shall I speak at this?
+                        <strong>Step 1:</strong> In the first box (<u>My Character Name</u>), type your character's name exactly as it is written in your script.
                     </li>
 
-                    <li><strong>Step 3:</strong> Click the <strong>Practice</strong> button to start your session.</li>
+                    {/* Mapping Step 2 to Input 2 */}
+                    <li>
+                        <strong>Step 2:</strong> In the second large box (<u>Paste Script</u>), paste the text of your scene.
+                    </li>
+
+                    {/* Clear formatting instruction with a visual example */}
+                    <li>
+                        <strong>Step 3:</strong> Make sure every line follows the <strong>Name: Line</strong> format.
+                        <br />
+                        <br />
+                        <em>Example:</em>
+                        <br />
+                        <em>Juliet: Romeo, Romeo, wherefore art thou Romeo</em>
+                        <br />
+                        <em>Romeo: Shall I hear more, or shall I speak at this?</em>
+                    </li>
+
+                    {/* Final Step */}
+                    <li>
+                        <strong>Step 4:</strong> Click the blue <strong>Practice</strong> button to load your session.
+                    </li>
                 </ul>
             </div>
 
