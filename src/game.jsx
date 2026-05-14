@@ -333,9 +333,7 @@ export default function MyApp() {
                 <Routes>
                     <Route path="/" element={<Game script={script} ratings={ratings} setRatings={setRatings} />} />
                     <Route path="/settings" element={<Settings onSave={saveScript} />} />
-                    <Route path="/stats" element={<PlayerStats ratings={ratings} onRunAgain={handleRunAgain} onPracticeWeak={handlePracticeWeak} />} />
-                    {/* <Route path="*" element={<h2>404 Page Not Found!!</h2>} /> */}
-                </Routes>
+                    <Route path="/stats" element={<PlayerStats ratings={ratings} onRunAgain={handleRunAgain} onPracticeWeak={handlePracticeWeak} />} />                </Routes>
             </div>
         </div>
     );
