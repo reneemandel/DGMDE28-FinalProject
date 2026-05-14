@@ -334,7 +334,7 @@ export default function MyApp() {
                     <Route path="/" element={<Game script={script} ratings={ratings} setRatings={setRatings} />} />
                     <Route path="/settings" element={<Settings onSave={saveScript} />} />
                     <Route path="/stats" element={<PlayerStats ratings={ratings} onRunAgain={handleRunAgain} onPracticeWeak={handlePracticeWeak} />} />
-                    <Route path="*" element={<h2>404 Page Not Found</h2>} />
+                    <Route path="*" element={<h2>404 Page Not Found!!</h2>} />
                 </Routes>
             </div>
         </div>
