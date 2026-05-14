@@ -217,26 +217,22 @@ function Settings({ onSave }) {
     };
 
     return (
-        <div className="instruction-box">
-    <p className="instruction-title">How to Start</p>
-    
-    {/* Using <ol> for sequential steps (Week 2, Slide 39) */}
-    <ol className="instruction-list">
-        <li>Type your name in the **Character Name** box exactly as it appears in your script.</li>
-        <li>Paste your script into the large text area.</li>
-        <li>Ensure every line follows the **Name: Line** format.</li>
-    </ol>
-
-    {/* Dedicated Example Block - much clearer than a list item */}
-    <div className="format-preview">
-        <p className="example-label">Required Format:</p>
-        <code className="example-code">
+        <div className="main-card">
+            <h2 className="card-title">Setup</h2>
+            {/* static box of text that explains how to use the app to the user. */}
+            <div className="instruction-box">
+    <p className="instruction-title">How to Setup Your Script</p>
+    <ul className="instruction-list">
+        <li><strong>Step 1:</strong> Enter your character name <strong>EXACTLY</strong> as it appears in the text below.</li>
+        <li><strong>Step 2:</strong> Paste the script using the <strong>Name: Line</strong> format.</li>
+        <li>
+            <strong>Correct Format Example:</strong><br />
             Juliet: Romeo, Romeo, wherefore art thou Romeo<br />
             Romeo: Shall I hear more, or shall I speak at this?
-        </code>
-    </div>
-
-    <p className="instruction-footer">Click <strong>Practice</strong> to load your lines!</p>
+        </li>
+        
+        <li><strong>Step 3:</strong> Click the <strong>Practice</strong> button to start your session.</li>
+    </ul>
 </div>
 
             {/* When the user clicks the button at the bottom, this form triggers the 'handlePractice' function. */}
