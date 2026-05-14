@@ -221,35 +221,29 @@ function Settings({ onSave }) {
             <h2 className="card-title">Setup</h2>
             {/* static box of text that explains how to use the app to the user. */}
             <div className="instruction-box">
-                <p className="instruction-title">How to Setup Your Script</p>
-                <ul className="instruction-list">
-                    {/* Mapping Step 1 to Input 1 */}
-                    <li>
-                        <strong>Step 1:</strong> In the first box (<u>My Character Name</u>), type your character's name exactly as it is written in your script.
-                    </li>
+                <p className="instruction-title">Instructions</p>
 
-                    {/* Mapping Step 2 to Input 2 */}
-                    <li>
-                        <strong>Step 2:</strong> In the second large box (<u>Paste Script</u>), paste the text of your scene.
-                    </li>
+                {/* Section 1: Character Name */}
+                <div style={{ marginBottom: '20px' }}>
+                    <strong>My Character Name box:</strong><br />
+                    Type your character's name exactly as it appears in your script text below.
+                </div>
 
-                    {/* Clear formatting instruction with a visual example */}
-                    <li>
-                        <strong>Step 3:</strong> Make sure every line follows the <strong>Name: Line</strong> format.
-                        <br />
-                        <br />
-                        <em>Example:</em>
-                        <br />
-                        <em>Juliet: Romeo, Romeo, wherefore art thou Romeo</em>
-                        <br />
+                {/* Section 2: Script Box & Format */}
+                <div style={{ marginBottom: '20px' }}>
+                    <strong>Paste Script box:</strong><br />
+                    Paste your scene using the <strong>Name: Line</strong> format so the app can identify the speakers.
+
+                    <div style={{ marginTop: '10px', paddingLeft: '15px' }}>
+                        <em>Juliet: Romeo, Romeo, wherefore art thou Romeo</em><br />
                         <em>Romeo: Shall I hear more, or shall I speak at this?</em>
-                    </li>
+                    </div>
+                </div>
 
-                    {/* Final Step */}
-                    <li>
-                        <strong>Step 4:</strong> Click the blue <strong>Practice</strong> button to load your session.
-                    </li>
-                </ul>
+                {/* Final instruction */}
+                <div>
+                    Click the <strong>Practice</strong> button at the bottom to begin your session!
+                </div>
             </div>
 
             {/* When the user clicks the button at the bottom, this form triggers the 'handlePractice' function. */}
